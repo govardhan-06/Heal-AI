@@ -25,11 +25,6 @@ fund_agent_if_low(doctor.wallet.address())
 doctor.include(take_Appointments,publish_manifest=True)
 doctor.include(accept_Appointments,publish_manifest=True)
 
-class PaymentRequest(Model):
-    wallet_address: str
-    amount: int
-    denom: str
- 
 class TransactionInfo(Model):
     tx_hash: str
     amount:str
@@ -37,11 +32,6 @@ class TransactionInfo(Model):
 
 class TransactionStatus(Model):
     status:str
-
-@doctor.on_message(model=TransactionStatus,replies=PaymentRequest)
-async def request_bill_payment(ctx: Context,sender:str,TransactionStatus:str):
-    DENOM="atestfet"
-    await ctx.send(CUST_ADDRESS,PaymentRequest(wallet_address=str(doctor.wallet.address()), amount=ctx.storage.get('totalCost'), denom=DENOM))
 
 @doctor.on_message(model=TransactionInfo,replies=TransactionStatus)
 async def confirm_transaction(ctx: Context, sender: str, msg: TransactionInfo):
@@ -61,5 +51,6 @@ async def confirm_transaction(ctx: Context, sender: str, msg: TransactionInfo):
         await ctx.send(CUST_ADDRESS,TransactionStatus(status=f"Received payment from {sender}. Thank You"))
 
 if __name__=="__main__":
+    print(str(doctor.wallet.address()))
     doctor.run()
 

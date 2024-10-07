@@ -62,7 +62,18 @@ async def make_Order(ctx:Context,sender:str,p:UserPrompt):
     This function handles the messages from the user and decides on the category of doctors to be referred.
     '''
     current_loc=agent_location()
-    context=["Gynecologist", "Obstetrician", "Pediatrician", "Neonatologist", "Cardiologist", "Surgeon", "Cardiothoracic Surgeon", "Pulmonologist", "Respiratory Therapist", "Orthopedic Surgeon", "Orthopedic Specialist",]
+    context= [
+                "General Practitioner",
+                "Pediatrician",
+                "Gynecologist",
+                "Cardiologist",
+                "Dermatologist",
+                "Gastroenterologist",
+                "Orthopedic Surgeon",
+                "Psychiatrist",
+                "Pulmonologist",
+                "Endocrinologist"
+            ]
     
     llm=ChatGroq(temperature=0,model="llama-3.1-70b-versatile",api_key=GROQ_API_KEY)
     chat_template = ChatPromptTemplate.from_messages(
@@ -111,11 +122,3 @@ async def confirm_order(ctx: Context,sender:str, user_confirmation: Confirm):
         await ctx.send(DOC_ADDRESS, Doctor_Message(location=ctx.storage.get("user_location"), 
                                                    message=ctx.storage.get("user_message"),
                                                    date=ctx.storage.get("appointment_time")))
-        
-
-    
-
-
-    
-    
-

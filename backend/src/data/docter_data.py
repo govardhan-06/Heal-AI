@@ -7,8 +7,16 @@ first_names = ["Aarav", "Diya", "Arjun", "Ananya", "Rohan", "Meera", "Siddharth"
 last_names = ["Sharma", "Verma", "Reddy", "Iyer", "Singh", "Patel", "Das", "Gupta", "Mishra", "Nair"]
 
 specializations = [
-    "Gynecologist", "Obstetrician", "Pediatrician", "Neonatologist", "Cardiologist", "Surgeon", "Cardiothoracic Surgeon", 
-    "Pulmonologist", "Respiratory Therapist", "Orthopedic Surgeon", "Orthopedic Specialist"
+    "General Practitioner",
+    "Pediatrician",
+    "Gynecologist",
+    "Cardiologist",
+    "Dermatologist",
+    "Gastroenterologist",
+    "Orthopedic Surgeon",
+    "Psychiatrist",
+    "Pulmonologist",
+    "Endocrinologist"
 ]
 
 locations = [

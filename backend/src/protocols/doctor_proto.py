@@ -43,15 +43,15 @@ async def recieve_Orders(ctx:Context,sender:str,newAppointment:Doctor_Message):
 
     upcoming_sessions={
         "date":newAppointment.date,
-        "message":newAppointment.message,
-        "location":newAppointment.location,
+        "patient_id":sender,
+        "patient_message":newAppointment.message,
+        "patient_location":newAppointment.location,
     }
 
     ctx.storage.set("upcoming_sessions",upcoming_sessions)
 
 @accept_Appointments.on_query(model=Confirm,replies=Confirm_Appointment)
 async def accept_Orders(ctx:Context,sender:str,req:Confirm):
-
     if req.confirm:
         doc_message=f"Appointment confirmed. Please reach the clinic before 10 mins of the scheduled time"
         await ctx.send(CUST_ADDRESS,Confirm_Appointment(message=doc_message))
