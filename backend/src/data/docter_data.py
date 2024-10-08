@@ -1,6 +1,6 @@
 import random
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 # Predefined lists for generating random Indian names
 first_names = ["Aarav", "Diya", "Arjun", "Ananya", "Rohan", "Meera", "Siddharth", "Priya", "Vikram", "Riya"]
@@ -42,9 +42,21 @@ def generate_email(first_name, last_name):
 
 # Function to generate a random appointment time within the next month
 def generate_appointment_time():
-    start_date = datetime.now()
-    appointment_time = start_date + timedelta(days=random.randint(1, 30), hours=random.randint(9, 17))
-    return appointment_time.strftime("%Y-%m-%dT%H:%M:%S")
+    # Get the current time in UTC with timezone info
+    start_date = datetime.now(timezone.utc)
+    
+    # Generate a random number of days (within 30 days) and random hours (between 9 AM and 5 PM)
+    days_to_add = random.randint(1, 30)
+    hours = random.randint(9, 17)
+    
+    # Generate random minutes in intervals of 0, 15, 30, or 45
+    minutes = random.choice([0, 15, 30, 45])
+    
+    # Create the appointment time
+    appointment_time = start_date + timedelta(days=days_to_add, hours=hours, minutes=minutes)
+    
+    # Format the appointment time in Google Calendar compatible UTC format (YYYYMMDDTHHMMSSZ)
+    return appointment_time.strftime("%Y%m%dT%H%M%SZ")
 
 # Store all generated data here
 doctors_data = []

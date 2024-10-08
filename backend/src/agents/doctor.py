@@ -51,6 +51,5 @@ async def confirm_transaction(ctx: Context, sender: str, msg: TransactionInfo):
         await ctx.send(CUST_ADDRESS,TransactionStatus(status=f"Received payment from {sender}. Thank You"))
 
 if __name__=="__main__":
-    print(str(doctor.wallet.address()))
     doctor.run()
 
