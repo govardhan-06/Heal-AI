@@ -2,7 +2,7 @@
 
 ## Overview
 
-HealAI is a cutting-edge healthcare application that integrates AI and medical expertise to provide users with personalized healthcare recommendations. Powered by AI agents specialized for various tasks, HealAI assists users in analyzing medical conditions, scheduling appointments with doctors, and receiving insights on prescriptions and lab reports.
+HealAI is your complete healthcare companion, guiding you every step of the way. From finding the right doctor and booking appointments to analyzing medical reports and recommending lifestyle changes, HealAI ensures you're supported throughout your healing journey. Whether it's getting to your appointment or providing detailed insights from prescriptions and lab reports, HealAI takes care of it all. With AI-powered agents working for you, the app handles everything seamlessly, allowing you to focus on what matters most—your health. Let HealAI steer the process while you relax in the back seat, knowing you're in safe hands.
 
 ## How Does the App Work?
 
